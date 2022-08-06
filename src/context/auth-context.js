@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
   useEffect(() => {
     getUser().then(data => {
       setUser(data)
-      setTimeout(() => { setIsLoading(false) }, 500)
+      setTimeout(() => { setIsLoading(false) }, 1500)
     }).catch(() => setIsLoading(false));
   }, []);
 
