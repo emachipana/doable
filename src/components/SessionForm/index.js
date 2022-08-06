@@ -1,7 +1,9 @@
 import { Formik } from "formik";
 import { Button, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { useAuth } from "../../context/auth-context";
 
 function SessionForm({ location }) {
+  const { login, signup } = useAuth();
 
   function validate(values) {
     const errors = {};
@@ -27,9 +29,9 @@ function SessionForm({ location }) {
 
   function handleSubmit(values) {
     if(location === "/login"){
-      console.log(values, location);
+      login(values);
     }else {
-      console.log(values, location);
+      signup(values);
     }
   }
 
