@@ -18,23 +18,35 @@ function AuthProvider({ children }) {
   }, []);
 
   function handleLogin(credentials) {
+    setIsLoading(true);
     return login(credentials).then(data => {
       setUser(data);
       navigate("/");
-    }).catch(e => setError(e.message));
+      setIsLoading(false);
+    }).catch(e => {
+      setError(e.message);
+      setIsLoading(false);
+    });
   }
 
   function handleSignUp(data) {
+    setIsLoading(true);
     return signup(data).then(response => {
       setUser(response);
       navigate("/");
-    }).catch(e => setError(e.message));
+      setIsLoading(false);
+    }).catch(e => {
+      setError(e.message);
+      setIsLoading(false);
+    });
   }
 
   function handleLogout() {
+    setIsLoading(true);
     return logout().finally(() => {
       setUser(null);
       navigate("/login");
+      setIsLoading(false);
     });
   }
 
@@ -43,6 +55,7 @@ function AuthProvider({ children }) {
       value={{
         user,
         error,
+        setError,
         isLoading,
         login: handleLogin,
         signup: handleSignUp,
