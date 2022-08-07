@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
+import SimpleBar from "simplebar-react";
 
 export const Container = styled.div`
   max-width: 420px;
   margin: 0 auto;
-  height: 70vh;
+  height: 90vh;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -25,4 +26,11 @@ export const Division = styled.div`
   display: flex;
   gap: 6px;
   align-items: center;
+`;
+
+export const Tasks = styled(SimpleBar)`
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
 `;
