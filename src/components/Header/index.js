@@ -3,12 +3,15 @@ import { ReactComponent as Logo } from "./../../assets/logo.svg";
 import { Container, Icon } from "./styles";
 
 function Header({ isAuth }) {
-  const { logout } = useAuth();
+  const { logout, setError } = useAuth();
 
   return (
     <Container>
-      <Logo style={{filter: "invert(20%) sepia(54%) saturate(3121%) hue-rotate(140deg) brightness(31%) contrast(51%)"}}/>
-      { isAuth && <Icon onClick={() => logout()} /> }
+      <Logo style={{filter: "invert(21%) sepia(45%) saturate(5051%) hue-rotate(210deg) brightness(100%) contrast(92%)"}}/>
+      { isAuth && <Icon onClick={() => { 
+        logout();
+        setError(null);
+      }} /> }
     </Container>
   );
 }

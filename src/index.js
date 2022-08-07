@@ -6,6 +6,7 @@ import { global } from "./styles/global";
 import { AuthProvider } from './context/auth-context';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'simplebar/dist/simplebar.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

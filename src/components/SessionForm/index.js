@@ -1,9 +1,9 @@
 import { Formik } from "formik";
-import { Button, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
+import { Alert, Button, Form, FormFeedback, FormGroup, Input, Label } from "reactstrap";
 import { useAuth } from "../../context/auth-context";
 
 function SessionForm({ location }) {
-  const { login, signup } = useAuth();
+  const { login, signup, error } = useAuth();
 
   function validate(values) {
     const errors = {};
@@ -18,7 +18,7 @@ function SessionForm({ location }) {
 
     if(password === "") {
       errors.password = "This field is required";
-    }else if(password.length <= 6) {
+    }else if(password.length < 6) {
       errors.password = "At least 6 characters long";
     }
 
@@ -87,6 +87,15 @@ function SessionForm({ location }) {
                 <FormFeedback>{ errors.password }</FormFeedback>
               ) }
             </FormGroup>
+            { error ?
+              <Alert color="danger">
+                {
+                  location === "/login"
+                  ? "Incorrect email or password"
+                  : "Incorrect, please check the fields" 
+                }
+              </Alert>
+            : null }
             <Button
               color="primary"
               block
