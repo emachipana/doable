@@ -3,3 +3,5 @@
 
 ## To run
 <code>npm run</code>
+
+or visit site: https://react-doable.netlify.app
