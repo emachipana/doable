@@ -30,7 +30,12 @@ export const Division = styled.div`
 
 export const Tasks = styled(SimpleBar)`
   height: 330px;
-  display: flex;
-  flex-direction: column;
   padding: 12px;
+`;
+
+export const LoaderContainer = styled.div`
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
